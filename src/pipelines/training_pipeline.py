@@ -7,6 +7,7 @@ from src.components.data_transformation import DataTransformation
 from src.components.modal_trainer import ModelTrainer
 
 if __name__ == '__main__':
+    ## Data ingestion
     obj = DataIngestion()
     train_data_path,test_data_path = obj.initialize_ingestion()
     print( train_data_path,test_data_path)

@@ -18,6 +18,7 @@ def save_object(file_path,obj):
             pickle.dump(obj,f)
 
     except Exception as e:
+        logging.info(f'Exception occured during saving object at {file_path}')
         raise CustomException(e,sys)
     
 ##
@@ -48,3 +49,17 @@ def evaluate_models(X_train,y_train,X_test,y_test,models:dict):
     except Exception as e:
          logging.info('Exception occured during model training')
          raise CustomException(e,sys)
+    
+##
+# Load object from pickle file
+##
+def load_object(file_path):
+
+    try :
+        with open(file_path,'rb') as f:
+            obj = pickle.load(f)
+            return obj
+
+    except Exception as e:
+        logging.info(f'Exception occured during loading object at {file_path}')
+        raise CustomException(e,sys)
