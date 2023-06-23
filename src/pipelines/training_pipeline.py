@@ -4,6 +4,7 @@ from src.logger import logging
 from src.exception import CustomException
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
+from src.components.modal_trainer import ModelTrainer
 
 if __name__ == '__main__':
     obj = DataIngestion()
@@ -17,3 +18,6 @@ if __name__ == '__main__':
                                                 test_data_path=test_data_path
                                                 )
     
+    ## train model
+    model_trainer = ModelTrainer()
+    model_trainer.initiate_model_training(train_arr,test_arr)

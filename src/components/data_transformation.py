@@ -124,5 +124,5 @@ class DataTransformation :
             
 
         except Exception as e :
-
+            logging.info('Exception occured during data transformation')
             raise CustomException(e,sys)
