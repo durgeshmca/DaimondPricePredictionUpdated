@@ -13,16 +13,27 @@ def predict_datapoint():
     if request.method == 'GET' :
         return render_template('form.html')
     else :
+        formData = {
+            'carat'   : float(request.form.get('carat')),
+            'cut'     : str(request.form.get('cut')),
+            'color'   : str(request.form.get('color')),
+            'clarity' : str(request.form.get('clarity')),
+            'depth'   : float(request.form.get('depth')),
+            'table'   : float(request.form.get('table')),
+            'x'       : float(request.form.get('x')),
+            'y'       : float(request.form.get('y')),
+            'z'       : request.form.get('z')
+        }
         data = CustomData(
-            carat   = request.form.get('carat'),
-            cut     = request.form.get('cut'),
-            color   = request.form.get('color'),
-            clarity = request.form.get('clarity'),
-            depth   = request.form.get('depth'),
-            table   = request.form.get('table'),
-            x       = request.form.get('x'),
-            y       = request.form.get('y'),
-            z       = request.form.get('z')
+            carat   = formData['carat'],
+            cut     = formData['cut'],
+            color   = formData['color'],
+            clarity = formData['clarity'],
+            depth   = formData['depth'],
+            table   = formData['table'],
+            x       = formData['x'],
+            y       = formData['y'],
+            z       = formData['z']
 
         )
         final_new_data = data.get_data_as_dataframe()
