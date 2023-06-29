@@ -18,9 +18,9 @@ def predict_datapoint():
         else :
             formData = {
                 'carat'   : float(request.form.get('carat')),
-                'cut'     : str(request.form.get('cut')),
-                'color'   : str(request.form.get('color')),
-                'clarity' : str(request.form.get('clarity')),
+                'cut'     : request.form.get('cut'),
+                'color'   : request.form.get('color'),
+                'clarity' : request.form.get('clarity'),
                 'depth'   : float(request.form.get('depth')),
                 'table'   : float(request.form.get('table')),
                 'x'       : float(request.form.get('x')),
