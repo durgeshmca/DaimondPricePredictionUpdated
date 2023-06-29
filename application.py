@@ -47,8 +47,8 @@ def predict_datapoint():
             return render_template('form.html',final_result = predicted_value)
     
     except Exception as e:
-        ce = CustomException(e,sys)
-        return render_template('form.html',final_result = ce)
+        # ce = CustomException(e,sys)
+        return render_template('form.html',final_result = e)
         
     
 if __name__ == '__main__':
