@@ -1,5 +1,7 @@
 from flask import Flask,render_template,request,jsonify
 from src.pipelines.prediction_pipeline import PredictPipeline,CustomData
+import sys
+from src.exception import CustomException
 
 application = Flask(__name__)
 app = application
@@ -45,7 +47,8 @@ def predict_datapoint():
             return render_template('form.html',final_result = predicted_value)
     
     except Exception as e:
-        return render_template('form.html',final_result = e)
+        ce = CustomException(e,sys)
+        return render_template('form.html',final_result = ce)
         
     
 if __name__ == '__main__':
